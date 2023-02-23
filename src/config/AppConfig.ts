@@ -16,4 +16,10 @@ export const AppConfig: Envs = {
   APPLICATION_NAME: process.env.APPLICATION_NAME || requiredEnvVar('APPLICATION_NAME'),
   APP_ENVIRONMENT: process.env.APP_ENVIRONMENT || 'development',
   PORT: Number(process.env.APP_PORT || 3000),
+
+  //Database
+  MONGO_URI: process.env.MONGO_URI || requiredEnvVar('MONGO_URI'),
+  MONGO_USER: process.env.MONGO_USER || requiredEnvVar('MONGO_USER'),
+  MONGO_PASSWORD: process.env.MONGO_PASSWORD || requiredEnvVar('MONGO_PASSWORD'),
+  MONGO_DB_NAME: process.env.MONGO_DB_NAME || requiredEnvVar('MONGO_DB_NAME'),
 };

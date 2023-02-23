@@ -8,7 +8,9 @@
     "lint:tsc": "tsc --project tsconfig.json --noEmit",
     "lint": "npm run lint:tsc && eslint . --ext .ts,.js && prettier --check \"src/**/*.ts\"",
     "format": "eslint --fix . && prettier --write .",
-    "build": "babel src --extensions \".ts\" --out-dir dist --copy-files --no-copy-ignored"
+    "build": "babel src --extensions \".ts\" --out-dir dist --copy-files --no-copy-ignored",
+    "test:unit": "jest --bail --forceExit --passWithNoTests \"tests/unit/.*\\.test\\.ts\"",
+    "test:file": "jest --bail --forceExit --passWithNoTests"
   },
   "husky": {
     "hooks": {
@@ -58,9 +60,13 @@
     "typescript": "^4.9.5"
   },
   "dependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "date-fns": "^2.29.3",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "http-status": "^1.6.2",
-    "joi": "^17.7.0"
+    "joi": "^17.7.0",
+    "mongoose": "^6.10.0",
+    "winston": "^3.8.2"
   }
 }

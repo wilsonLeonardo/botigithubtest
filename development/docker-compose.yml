@@ -1,1 +1,22 @@
 version: '3.7'
+services:
+  database:
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=123
+    ports:
+      - '27017:27017'
+  github_api:
+    image: node:16.19.0-alpine
+    volumes:
+      - ../:/github_api
+    working_dir: /github_api
+    ports:
+      - 3000:3000
+    env_file: ../.env
+    links:
+      - database
+    depends_on:
+      - database
+    command: ash -c "npm ci && npm run dev"

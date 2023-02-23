@@ -1,0 +1,19 @@
+{
+  "extends": ["plugin:jest/recommended", "plugin:jest/style"],
+  "plugins": ["@typescript-eslint/eslint-plugin", "prettier", "eslint-plugin-import", "jest"],
+
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "rules": {
+    "prettier/prettier": "warn",
+    "max-len": ["warn", 120]
+  },
+  "env": {
+    "node": true,
+    "jest/globals": true
+  },
+  "ignorePatterns": ["/node_modules/", "/dist/", "/.vscode/", "/coverage/"]
+}

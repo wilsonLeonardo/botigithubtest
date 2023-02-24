@@ -7,7 +7,8 @@ ENV TZ America/Sao_Paulo
 
 WORKDIR /app
 
-COPY . .
+COPY package.json package-lock.json tsconfig.json babel.config.js swagger-doc.json .env ./
+COPY src src
 
 RUN npm ci
 RUN npm run build

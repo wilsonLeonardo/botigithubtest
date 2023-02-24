@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GetRepoDetailsController should match the snapshot #unit 1`] = `
+GetRepoDetailsController {
+  "execute": [Function],
+  "gitHubService": GitHubServiceMock {},
+  "logger": LoggerMock {},
+}
+`;

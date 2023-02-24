@@ -9,8 +9,13 @@
     "lint": "npm run lint:tsc && eslint . --ext .ts,.js && prettier --check \"src/**/*.ts\"",
     "format": "eslint --fix . && prettier --write .",
     "build": "babel src --extensions \".ts\" --out-dir dist --copy-files --no-copy-ignored",
+    "test": "jest --bail --forceExit --testPathIgnorePatterns \"tests/e2e/.*\\.test\\.ts\"",
+    "test:coverage": "npm run test -- --coverage",
     "test:unit": "jest --bail --forceExit --passWithNoTests \"tests/unit/.*\\.test\\.ts\"",
-    "test:file": "jest --bail --forceExit --passWithNoTests"
+    "test:file": "jest --bail --forceExit --passWithNoTests",
+    "test:integration": "jest --bail --forceExit --passWithNoTests \"tests/integration/.*\\.test\\.ts\"",
+    "test:e2e": "jest --verbose --runInBand --passWithNoTests \"tests/e2e/.*\\.test\\.ts\"",
+    "test:e2e:ci": "npm install -g wait-on && sudo -E docker-compose -f development/docker-compose.yml up -d && wait-on http://localhost:3000/v1/ping --httpTimeout 60000 && npm run test:e2e"
   },
   "husky": {
     "hooks": {
@@ -40,6 +45,8 @@
     "@types/express": "^4.17.17",
     "@types/jest": "^27.0.3",
     "@types/node": "^16.11.12",
+    "@types/swagger-ui-express": "^4.1.3",
+    "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.10.2",
     "@typescript-eslint/parser": "^5.6.0",
     "babel": "^6.23.0",
@@ -61,12 +68,17 @@
   },
   "dependencies": {
     "@faker-js/faker": "^7.6.0",
+    "@types/supertest": "^2.0.12",
+    "axios": "^0.27.2",
     "date-fns": "^2.29.3",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "http-status": "^1.6.2",
     "joi": "^17.7.0",
     "mongoose": "^6.10.0",
+    "supertest": "^6.3.3",
+    "swagger-ui-express": "^4.6.1",
+    "uuid": "^8.3.2",
     "winston": "^3.8.2"
   }
 }

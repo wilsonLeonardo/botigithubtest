@@ -8,6 +8,7 @@ process.env = {
   MONGO_USER: faker.internet.userName(),
   MONGO_PASSWORD: faker.internet.password(),
   MONGO_DB_NAME: 'github',
+  GIT_HUB_BASE_URL: faker.internet.url(),
 };
 
 export {};

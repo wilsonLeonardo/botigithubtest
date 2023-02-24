@@ -44,3 +44,7 @@ npm run dev
 ## API Resources
 
 You can find API resources at swagger [here](/v1/api-docs)
+
+### CI Status
+
+[![](https://github.com/wilsonLeonardo/botigithubtest/actions/workflows/ci_pipeline.yml/badge.svg?branch=main)](https://github.com/wilsonLeonardo/botigithubtest/actions/workflows/ci_pipeline.yml)

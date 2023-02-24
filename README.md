@@ -41,9 +41,13 @@ npm run dev
 - `npm run test:e2e:ci` to run end to end tests on ci;
 - `npm run test:file` to run test for specific file;
 
+## URL's
+
+- Prod - https://botigithubtest.onrender.com/v1/ (Deployed on [render](https://render.com/))
+
 ## API Resources
 
-You can find API resources at swagger [here](/v1/api-docs)
+You can find API resources at swagger [here](https://botigithubtest.onrender.com/v1/api-docs/)
 
 ### CI Status
 

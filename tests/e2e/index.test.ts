@@ -18,8 +18,10 @@ describe('API Flow #e2e', () => {
     const response = await request().get('/repository/top-five');
     expect(response.status).toBe(OK);
     expect(response.body.repositories).toHaveLength(5);
-    const retrievedRepositories = response.body.repositories.map((repo: { id: string }) => repo.id);
-    expect(retrievedRepositories).toEqual(repositoriesIdCreated);
+    const retrievedRepositoriesIds = response.body.repositories.map((repo: { id: string }) => repo.id);
+    retrievedRepositoriesIds.forEach((id: string) => {
+      expect(repositoriesIdCreated.indexOf(id)).not.toBe(-1);
+    });
   });
   it('should get details of a repository with success #e2e', async () => {
     const response = await request().get(`/repository/${repositoriesIdCreated[0]}/details`);

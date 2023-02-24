@@ -1,0 +1,104 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "GitHubBests API",
+    "description": "Best repositories of five different programming languages!",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "Local development server"
+    }
+  ],
+  "paths": {
+    "/v1/repository/top-five": {
+      "post": {
+        "summary": "Find from github and save the best repository of five different programming languages",
+        "tags": ["GitHubBests"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["programmingLanguages"],
+                "properties": {
+                  "programmingLanguages": {
+                    "type": "array",
+                    "description": "Must be five different programming languages",
+                    "items": {
+                      "type": "string",
+                      "enum": ["javascript", "golang", "php", "java", "html", "typescript", "csharp", "xml", "python"],
+                      "minItems": 5,
+                      "maxItems": 5
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Repositories found and saved"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "get": {
+        "summary": "Returns a list of previously saved repositories",
+        "tags": ["GitHubBests"],
+        "responses": {
+          "200": {
+            "description": "Repositories found or empty array"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "Internal error"
+          }
+        }
+      }
+    },
+    "/v1/repository/{repoId}/details": {
+      "get": {
+        "summary": "Returns the details of a saved repository",
+        "tags": ["GitHubBests"],
+        "parameters": [
+          {
+            "name": "repoId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Repository details found"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "404": {
+            "description": "Repository details not found or not saved"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    }
+  }
+}

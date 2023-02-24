@@ -1,7 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
 import Joi, { ValidationError, Schema } from 'joi';
 import schemas from '../schemas';
-import { BadRequestError, InternalServerError } from '@domain/exceptions';
+import InternalServerError from '@domain/exceptions/InternalServerError';
+import BadRequestError from '@domain/exceptions/BadRequestError';
 import { buildErrorInfo } from '@infrastructure/parser/ErrorInfo';
 
 export const validateSchema = (validator: string, requestObject: 'body' | 'params' | 'query') => {

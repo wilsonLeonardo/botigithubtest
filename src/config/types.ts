@@ -6,4 +6,5 @@ export interface Envs {
   MONGO_USER: string;
   MONGO_PASSWORD: string;
   MONGO_DB_NAME: string;
+  GIT_HUB_BASE_URL: string;
 }

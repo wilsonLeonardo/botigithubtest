@@ -22,4 +22,7 @@ export const AppConfig: Envs = {
   MONGO_USER: process.env.MONGO_USER || requiredEnvVar('MONGO_USER'),
   MONGO_PASSWORD: process.env.MONGO_PASSWORD || requiredEnvVar('MONGO_PASSWORD'),
   MONGO_DB_NAME: process.env.MONGO_DB_NAME || requiredEnvVar('MONGO_DB_NAME'),
+
+  // GITHUB
+  GIT_HUB_BASE_URL: process.env.GIT_HUB_BASE_URL || requiredEnvVar('GIT_HUB_BASE_URL'),
 };

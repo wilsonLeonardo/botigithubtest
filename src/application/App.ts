@@ -1,5 +1,8 @@
 import * as http from 'http';
 import express, { RequestHandler } from 'express';
+import * as swaggerUI from 'swagger-ui-express';
+
+import * as swaggerDocument from '../../swagger-doc.json';
 import { ILogger } from '@infrastructure/logger/ILogger';
 import { AppConfig } from '@config/AppConfig';
 
@@ -33,6 +36,8 @@ export default class App {
 
   private handlerRoutes(): void {
     this.app.use(this.routes);
+
+    this.app.use('/v1/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
   }
 
   private handlerMiddlewares(): void {

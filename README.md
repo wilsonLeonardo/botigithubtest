@@ -49,6 +49,10 @@ npm run dev
 
 You can find API resources at swagger [here](https://botigithubtest.onrender.com/v1/api-docs/)
 
-### CI Status
+## Database
+
+[MongoDB Atlas](https://www.mongodb.com/atlas/database)
+
+## CI Status
 
 [![](https://github.com/wilsonLeonardo/botigithubtest/actions/workflows/ci_pipeline.yml/badge.svg?branch=main)](https://github.com/wilsonLeonardo/botigithubtest/actions/workflows/ci_pipeline.yml)
